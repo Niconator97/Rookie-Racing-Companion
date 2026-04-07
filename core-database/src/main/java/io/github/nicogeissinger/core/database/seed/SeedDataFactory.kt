@@ -1,6 +1,8 @@
 package io.github.nicogeissinger.core.database.seed
 
+import io.github.nicogeissinger.core.database.entity.DriverEntity
 import io.github.nicogeissinger.core.database.entity.EventEntryEntity
+import io.github.nicogeissinger.core.database.entity.RaceClassEntity
 import io.github.nicogeissinger.core.database.entity.RaceEventEntity
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -10,7 +12,7 @@ import javax.inject.Inject
 class SeedDataFactory @Inject constructor() {
 
     fun createEvents(nowUtc: Instant): List<RaceEventEntity> {
-        val classId = "Rookie Touring Masters"
+        val classId = "RTM"
 
         val baseTime: LocalDateTime = LocalDateTime.ofInstant(nowUtc, ZoneOffset.UTC)
 
@@ -61,5 +63,29 @@ class SeedDataFactory @Inject constructor() {
             repeat(9) { i -> add(EventEntryEntity(driverId = "d${i + 1}", eventId = "rtm_e2", true, updatedAtUtcMillis = updateTime))}
             repeat(15) { i -> add(EventEntryEntity(driverId = "d${i + 1}", eventId = "rtm_e3", true, updatedAtUtcMillis = updateTime))}
         }
+    }
+
+    fun createDrivers(): List<DriverEntity> {
+        return buildList {
+            repeat(15) { i ->
+                val id = "d${i + 1}"
+                add(
+                    DriverEntity(
+                        id = id,
+                        userName = "Driver$id",
+                        realName = "Test Fahrer $id"
+                    )
+                )
+            }
+        }
+    }
+
+    fun createClasses(): List<RaceClassEntity> {
+        val updateTime = Instant.now().toEpochMilli()
+
+        return listOf(
+            RaceClassEntity("RTM", "RTM"),
+            RaceClassEntity("GT7", "GT7")
+        )
     }
 }

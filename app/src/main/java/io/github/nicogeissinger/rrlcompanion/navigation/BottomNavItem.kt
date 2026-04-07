@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import io.github.nicogeissinger.rrlcompanion.feature.calendar.presentation.navigation.CALENDAR_ROUTE
-import io.github.nicogeissinger.rrlcompanion.feature.dashboard.presentation.navigation.DASHBOARD_ROUTE
+import io.github.nicogeissinger.rrlcompanion.feature.dashboard.navigation.DASHBOARD_ROUTE
 import io.github.nicogeissinger.rrlcompanion.feature.standings.presentation.navigation.STANDINGS_ROUTE
 
 sealed class BottomNavItem(

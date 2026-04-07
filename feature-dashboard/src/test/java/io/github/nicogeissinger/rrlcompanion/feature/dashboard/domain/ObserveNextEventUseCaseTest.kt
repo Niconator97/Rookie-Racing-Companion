@@ -41,6 +41,15 @@ class ObserveNextEventUseCaseTest {
 
         assertEquals(event, result)
     }
+
+    @Test
+    fun `invoke emits null when repository has no next event`() = runTest {
+        repository.emit(null)
+
+        val result = useCase().first()
+
+        assertEquals(null, result)
+    }
 }
 
 private class FakeRaceEventRepository : RaceEventRepository {

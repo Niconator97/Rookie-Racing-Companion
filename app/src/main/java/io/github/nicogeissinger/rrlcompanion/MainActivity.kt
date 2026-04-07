@@ -7,13 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.nicogeissinger.core.database.seed.DatabaseSeeder
 import io.github.nicogeissinger.rrlcompanion.navigation.AppNavHost
@@ -37,13 +35,19 @@ class MainActivity : ComponentActivity() {
                 isReady = true
             }
 
-            if (isReady) {
-                AppNavHost()
-            } else {
-                LoadingScreen()
+            RRLCompanionTheme {
+                androidx.compose.material3.Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = androidx.compose.material3.MaterialTheme.colorScheme.background
+                ) {
+                    if (isReady) {
+                        AppNavHost()
+                    } else {
+                        LoadingScreen()
+                    }
+                }
             }
         }
-
     }
 
     @Composable

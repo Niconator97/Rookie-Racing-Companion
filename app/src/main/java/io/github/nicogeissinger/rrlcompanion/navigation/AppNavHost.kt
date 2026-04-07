@@ -12,8 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import io.github.nicogeissinger.rrlcompanion.feature.calendar.presentation.navigation.calendarGraph
-import io.github.nicogeissinger.rrlcompanion.feature.dashboard.presentation.navigation.DASHBOARD_ROUTE
-import io.github.nicogeissinger.rrlcompanion.feature.dashboard.presentation.navigation.dashboardGraph
+import io.github.nicogeissinger.rrlcompanion.feature.dashboard.navigation.DASHBOARD_ROUTE
+import io.github.nicogeissinger.rrlcompanion.feature.dashboard.navigation.dashboardGraph
 import io.github.nicogeissinger.rrlcompanion.feature.standings.presentation.navigation.standingsGraph
 
 @Composable

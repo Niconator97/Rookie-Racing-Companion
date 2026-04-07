@@ -2,7 +2,9 @@ package io.github.nicogeissinger.core.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import io.github.nicogeissinger.core.database.dao.DriverDao
 import io.github.nicogeissinger.core.database.dao.EventEntryDao
+import io.github.nicogeissinger.core.database.dao.RaceClassDao
 import io.github.nicogeissinger.core.database.dao.RaceEventDao
 import io.github.nicogeissinger.core.database.entity.DriverClassCrossRefEntity
 import io.github.nicogeissinger.core.database.entity.DriverEntity
@@ -24,6 +26,11 @@ import io.github.nicogeissinger.core.database.entity.RaceEventEntity
     exportSchema = true
 )
 abstract class RrlDatabase: RoomDatabase() {
+
+    abstract fun driverDao(): DriverDao
+
     abstract fun raceEventDao(): RaceEventDao
     abstract fun eventEntryDao(): EventEntryDao
+
+    abstract fun raceClassDao(): RaceClassDao
 }

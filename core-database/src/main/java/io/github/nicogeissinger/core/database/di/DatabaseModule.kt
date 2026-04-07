@@ -8,7 +8,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.github.nicogeissinger.core.database.RrlDatabase
+import io.github.nicogeissinger.core.database.dao.DriverDao
 import io.github.nicogeissinger.core.database.dao.EventEntryDao
+import io.github.nicogeissinger.core.database.dao.RaceClassDao
 import io.github.nicogeissinger.core.database.dao.RaceEventDao
 import javax.inject.Singleton
 
@@ -33,8 +35,14 @@ object DatabaseModule {
             .build()
 
     @Provides
+    fun providesDriverDao(db: RrlDatabase): DriverDao = db.driverDao()
+
+    @Provides
     fun provideRaceEventDao(db: RrlDatabase): RaceEventDao = db.raceEventDao()
 
     @Provides
     fun provideEventEntryDao(db: RrlDatabase): EventEntryDao = db.eventEntryDao()
+
+    @Provides
+    fun provideRaceClassDao(db: RrlDatabase): RaceClassDao = db.raceClassDao()
 }
